@@ -1,0 +1,54 @@
+# Project: Jogo
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe
+CC   = gcc.exe
+WINDRES = windres.exe
+RES  = Jogo_private.res
+OBJ  = main.o Nave.o Tanque.o Tiro.o Entidade.o Jogo.o ControleGrafico.o Cenario.o $(RES)
+LINKOBJ  = main.o Nave.o Tanque.o Tiro.o Entidade.o Jogo.o ControleGrafico.o Cenario.o $(RES)
+LIBS =  -L"C:/Dev-Cpp/lib" -mwindows -lalleg_s -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lole32 -ldinput -lddraw -ldxguid -lwinmm -ldsound 
+INCS =  -I"C:/Dev-Cpp/include" 
+CXXINCS =  -I"C:/Dev-Cpp/lib/gcc/mingw32/3.4.2/include"  -I"C:/Dev-Cpp/include/c++/3.4.2/backward"  -I"C:/Dev-Cpp/include/c++/3.4.2/mingw32"  -I"C:/Dev-Cpp/include/c++/3.4.2"  -I"C:/Dev-Cpp/include" 
+BIN  = Jogo.exe
+CXXFLAGS = $(CXXINCS) -DALLEGRO_STATICLINK 
+CFLAGS = $(INCS) -DALLEGRO_STATICLINK 
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before Jogo.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o "Jogo.exe" $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+Nave.o: Nave.cpp
+	$(CPP) -c Nave.cpp -o Nave.o $(CXXFLAGS)
+
+Tanque.o: Tanque.cpp
+	$(CPP) -c Tanque.cpp -o Tanque.o $(CXXFLAGS)
+
+Tiro.o: Tiro.cpp
+	$(CPP) -c Tiro.cpp -o Tiro.o $(CXXFLAGS)
+
+Entidade.o: Entidade.cpp
+	$(CPP) -c Entidade.cpp -o Entidade.o $(CXXFLAGS)
+
+Jogo.o: Jogo.cpp
+	$(CPP) -c Jogo.cpp -o Jogo.o $(CXXFLAGS)
+
+ControleGrafico.o: ControleGrafico.cpp
+	$(CPP) -c ControleGrafico.cpp -o ControleGrafico.o $(CXXFLAGS)
+
+Cenario.o: Cenario.cpp
+	$(CPP) -c Cenario.cpp -o Cenario.o $(CXXFLAGS)
+
+Jogo_private.res: Jogo_private.rc 
+	$(WINDRES) -i Jogo_private.rc --input-format=rc -o Jogo_private.res -O coff 
