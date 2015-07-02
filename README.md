@@ -12,3 +12,9 @@ The objective of this project was to explore:
 - Game concepts ( collision, infinite loop, events )
 
 
+SCREENSHOTS
+
+![1](https://github.com/gabrielpsilva/Allegro-Tank-Game/blob/master/SCREENSHOTS/1.JPG?raw=true)
+
+
+
